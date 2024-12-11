@@ -5,7 +5,7 @@ function getComputerResponse() {
     let ran = Math.random();
     if (ran < .333) {
         return "roca"
-    } else  if (ran > .333 & ran < .666) {
+    } else  if (ran > .333 && ran < .666) {
         return "tijeras"
     } else {
         return "papel"
@@ -46,13 +46,23 @@ function playRound(humanChoice, computerChoice) {
         }
     }
   }
-  
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerResponse();
-  
-playRound(humanSelection, computerSelection);
 
-console.log(humanSelection);
-console.log(computerSelection);
-console.log(humanScore);
-console.log(compScore);
+  function playGame () {
+    for (let i = 0; i < 5; i++) { 
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerResponse();
+  
+        playRound(humanSelection, computerSelection);
+    }
+
+    let winner = "";
+    if (compScore === humanScore) {
+        return "Tie!"
+    } else if (compScore > humanScore) {
+        return `Computer wins with ${compScore} to ${humanScore}`
+    } else {
+        return `Human wins with ${humanScore} to ${compScore}`
+    }
+  }
+
+console.log(playGame());
