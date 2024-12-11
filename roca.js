@@ -7,7 +7,12 @@ function getComputerResponse() {
     } else {
         return "papel"
     }
-   
+}
+
+function getHumanChoice() {
+    let humanResponse = prompt("Entre roca, tijeras, o papel.", "roca");
+    return humanResponse.toLowerCase()
 }
 
 console.log(getComputerResponse());
+console.log(getHumanChoice());
